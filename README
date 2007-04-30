@@ -1,0 +1,43 @@
+= dictionary_skeleton
+
+dictionary_skeleton .
+
+== Resources
+
+Wiki
+
+* http://wiki.pluginaweek.org/Dictionary_skeleton
+
+Announcement
+
+* http://www.pluginaweek.org/
+
+Source
+
+* http://svn.pluginaweek.org/trunk/plugins/skeletons/dictionary_skeleton
+
+Development
+
+* http://dev.pluginaweek.org/browser/trunk/plugins/skeletons/dictionary_skeleton
+
+== Description
+
++Description:
++
++The testing_for_plugin generator creates stubs for testing a plugin, as described in http://www.pluginaweek.org/2006/11/24
++
++The generator takes a plugin name as its only argument and creates several files that can be used as scaffolding for tests for the plugin.
++
++With a nod to test-first development, you can run this for a plugin that doesn't yet exist ;)
++
++Example:
++  $ script/generate testing_for_plugin acts_as_most_popular
++  
++  This will create several stub files, something like:
++      
++  $ script/generate testing_for_plugin acts_as_most_popular
++        create  vendor/plugins/acts_as_most_popular/test/railsroot/
++        create  vendor/plugins/acts_as_most_popular/test/railsroot/app/controllers
++         [ ... ] 
++        create  vendor/plugins/acts_as_most_popular/test/railsroot/config/boot.rb
++        create  vendor/plugins/acts_as_most_popular/test/railsroot/config/routes.rb
