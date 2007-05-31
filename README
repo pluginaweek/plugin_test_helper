@@ -1,12 +1,13 @@
-= dictionary_skeleton
+= plugin_test_helper
 
-dictionary_skeleton .
+plugin_test_helper simplifies plugin testing by creating an isolated Rails
+environment that simulates its usage in a real application.
 
 == Resources
 
 Wiki
 
-* http://wiki.pluginaweek.org/Dictionary_skeleton
+* http://wiki.pluginaweek.org/Plugin_test_helper
 
 Announcement
 
@@ -14,30 +15,172 @@ Announcement
 
 Source
 
-* http://svn.pluginaweek.org/trunk/plugins/skeletons/dictionary_skeleton
+* http://svn.pluginaweek.org/trunk/plugins/test/plugin_test_helper
 
 Development
 
-* http://dev.pluginaweek.org/browser/trunk/plugins/skeletons/dictionary_skeleton
+* http://dev.pluginaweek.org/browser/trunk/plugins/test/plugin_test_helper
 
-== Description
+== Background
 
-+Description:
-+
-+The testing_for_plugin generator creates stubs for testing a plugin, as described in http://www.pluginaweek.org/2006/11/24
-+
-+The generator takes a plugin name as its only argument and creates several files that can be used as scaffolding for tests for the plugin.
-+
-+With a nod to test-first development, you can run this for a plugin that doesn't yet exist ;)
-+
-+Example:
-+  $ script/generate testing_for_plugin acts_as_most_popular
-+  
-+  This will create several stub files, something like:
-+      
-+  $ script/generate testing_for_plugin acts_as_most_popular
-+        create  vendor/plugins/acts_as_most_popular/test/railsroot/
-+        create  vendor/plugins/acts_as_most_popular/test/railsroot/app/controllers
-+         [ ... ] 
-+        create  vendor/plugins/acts_as_most_popular/test/railsroot/config/boot.rb
-+        create  vendor/plugins/acts_as_most_popular/test/railsroot/config/routes.rb
+As described in http://www.pluginaweek.org/2006/11/24/plugin-tip-of-the-week-testing-your-plugins-the-right-way/,
+plugins often need access to a full Rails environment, whether it be accessing a
+database, simulating controller access, or something else.  Whatever it may be,
+you still need to initialize a Rails environment in order to get your tests
+working.
+
+Traditionally, this has been done by just loading the application that the
+plugin was added to.  This has many downfalls, the most important of which is
+that loading the application can cause all sorts of things to change, making it
+seem as though the plugin is having problems when it may be something else.  The
+other downfall of this technique is that the plugin cannot be tested individually.
+Instead, it must be part of a Rails application.
+
+== Solution
+
+The solution to this problem is to have the plugin create its own basic Rails
+environment with the ability to override any part of it, be it the database
+configuration, environment configuration, or adding models, controllers, helpers,
+etc.
+
+plugin_test_helper assumes a testing structure like so:
+
+your_plugin/
+your_plugin/test
+your_plugin/test/app_root
+your_plugin/test/app_root/app
+your_plugin/test/app_root/config
+your_plugin/test/app_root/db
+etc.
+
+The app_root directory is just like your run-of-the-mill Rails application.  It
+can contain the same directories as your full application.
+
+== How to use plugin_test_helper
+
+plugin_test_helper creates stubs for testing a plugin, as described in http://www.pluginaweek.org/2006/11/24
+
+The following generators are available:
+* plugin_test_helper
+* plugin_test_structure
+* plugin_test_model
+* plugin_test_controller
+* plugin_test_migration
+
+=== plugin_test_helper
+
+Generates a test helper file that should be required by all unit/functional/integration
+tests in your plugin.
+
+Example:
+
+  $ ruby script/generate plugin_test_helper acts_as_most_popular
+        create  vendor/plugins/acts_as_most_popular/test/test_helper.rb
+  Loaded suite script/generate
+  Started
+  
+  Finished in 0.000439 seconds.
+  
+  0 tests, 0 assertions, 0 failures, 0 errors
+
+=== plugin_test_structure
+
+Generates the entire test application structure.  If you keep all files within
+your plugin, then you will not need to depend on the plugin_test_helper plugin
+when testing it.
+
+Example:
+
+  $ ruby script/generate plugin_test_structure acts_as_most_popular
+        create  vendor/plugins/acts_as_most_popular/test/app_root
+        create  vendor/plugins/acts_as_most_popular/test/app_root/vendor
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config
+        create  vendor/plugins/acts_as_most_popular/test/app_root/app
+        create  vendor/plugins/acts_as_most_popular/test/app_root/lib
+        create  vendor/plugins/acts_as_most_popular/test/app_root/vendor/plugins
+        create  vendor/plugins/acts_as_most_popular/test/app_root/vendor/plugins/plugin_proxy
+        create  vendor/plugins/acts_as_most_popular/test/app_root/vendor/plugins/plugin_proxy/init.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/environments
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/routes.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/boot.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/environment.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/database.yml
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/environments/sqlite.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/environments/sqlite3.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/environments/mysql.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/environments/in_memory.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/config/environments/postgresql.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/app/controllers
+        create  vendor/plugins/acts_as_most_popular/test/app_root/app/controllers/application.rb
+  Loaded suite script/generate
+  Started
+  
+  Finished in 0.000548 seconds.
+  
+  0 tests, 0 assertions, 0 failures, 0 errors
+
+=== plugin_test_model
+
+Generates a model within your plugin's test application.  This uses a similar
+syntax to that of the Rails model generator.
+
+Example:
+
+  $ ruby script/generate plugin_test_model acts_as_most_popular Person
+        create  vendor/plugins/acts_as_most_popular/test/app_root/app/models/
+        create  vendor/plugins/acts_as_most_popular/test/app_root/test/fixtures/
+        create  vendor/plugins/acts_as_most_popular/test/app_root/app/models/person.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/test/fixtures/people.yml
+        create  vendor/plugins/acts_as_most_popular/test/app_root/db/migrate
+        create  vendor/plugins/acts_as_most_popular/test/app_root/db/migrate/001_create_people.rb
+  Loaded suite script/generate
+  Started
+  
+  Finished in 0.000435 seconds.
+  
+  0 tests, 0 assertions, 0 failures, 0 errors
+
+=== plugin_test_controller
+
+Generates a controller within your plugin's test application.  This uses a similar
+syntax to that of the Rails controller generator.
+
+Example:
+
+  $ ruby script/generate plugin_test_controller acts_as_most_popular Person
+        create  vendor/plugins/acts_as_most_popular/test/app_root/app/controllers/
+        create  vendor/plugins/acts_as_most_popular/test/app_root/app/views/person
+        create  vendor/plugins/acts_as_most_popular/test/app_root/app/controllers/person_controller.rb
+  Loaded suite script/generate
+  Started
+  
+  Finished in 0.000432 seconds.
+  
+  0 tests, 0 assertions, 0 failures, 0 errors
+
+=== plugin_test_migration
+
+Generates a migration within your plugin's test application.  This uses a similar
+syntax to that of the Rails migration generator.
+
+Example:
+
+  $ ruby script/generate plugin_test_migration acts_as_most_popular CreatePeople
+        create  vendor/plugins/acts_as_most_popular/test/app_root/db/migrate
+        create  vendor/plugins/acts_as_most_popular/test/app_root/db/migrate/001_create_people.rb
+  Loaded suite script/generate
+  Started
+  
+  Finished in 0.000443 seconds.
+  
+  0 tests, 0 assertions, 0 failures, 0 errors
+
+== Dependencies
+
+This plugin does not depend on any other plugins.
+
+== Credits
+
+Kudos to Mark Meves over at http://rationalexuberance.org/ for working on the
+initial implementation of this plugin. His work has made testing our plugins so
+much easier. Thanks Mark!
