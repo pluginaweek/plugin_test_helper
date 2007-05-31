@@ -67,6 +67,14 @@ The following generators are available:
 * plugin_test_controller
 * plugin_test_migration
 
++NOTE+ that you +DO NOT+ need to generate the entire application structure.  All
+that is required is that your test helper load plugin_test_helper.  If you do
+not define a part of the test application (such as the environment
+configurations or the database configuration), then it will use the existing
+implementation in plugin_test_helper/generators/plugin_test_structure/templates.
++However+, you can override any of these files by simply defining them in your
+plugin, using the same directory structure.
+
 === plugin_test_helper
 
 Generates a test helper file that should be required by all unit/functional/integration
