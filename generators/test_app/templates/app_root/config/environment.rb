@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'boot')
+require 'config/boot'
 
 Rails::Initializer.run do |config|
   config.log_level = :debug
