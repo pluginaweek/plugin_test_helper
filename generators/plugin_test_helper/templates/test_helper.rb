@@ -2,6 +2,7 @@
 # ENV['RAILS_ENV'] ||= 'your_env'
 
 # Load the plugin testing framework
+require 'rubygems'
 require 'plugin_test_helper'
 
 # Run the migrations (optional)
