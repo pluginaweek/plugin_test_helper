@@ -31,7 +31,7 @@ spec = Gem::Specification.new do |s|
   s.name            = PKG_NAME
   s.version         = PKG_VERSION
   s.platform        = Gem::Platform::RUBY
-  s.summary         = ''
+  s.summary         = 'Simplifies plugin testing by creating an isolated Rails environment that simulates its usage in a real application.'
   
   s.files           = FileList['{generators,lib}/**/*'].to_a + %w(CHANGELOG init.rb MIT-LICENSE Rakefile README)
   s.require_path    = 'lib'
