@@ -1,5 +1,7 @@
 *SVN*
 
+* A proxy plugin for the plugin being tested is no longer needed in favor of doing selective plugin loading.
+
 * Make sure RAILS_ROOT is in the load path
 
 * Automate setting of the fixtures path
