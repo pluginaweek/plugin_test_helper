@@ -1,5 +1,9 @@
 *SVN*
 
+* Automate setting of the fixtures path
+
+* Load test_help instead of test/unit so that additional libraries are automatically loaded like they are in your application's tests
+
 *0.0.1* (May 31st, 2007)
 
 * Initial release

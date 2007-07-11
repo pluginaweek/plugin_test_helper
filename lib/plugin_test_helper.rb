@@ -16,6 +16,15 @@ require 'plugin_test_helper/generator'
 require 'plugin_test_helper/extensions/initializer'
 require 'plugin_test_helper/extensions/routing'
 
-# Load the Rails environment and unit testing framework
+# Load the Rails environment and testing framework
 require 'config/environment'
-require 'test/unit'
+require 'test_help'
+
+# Undo changes to RAILS_ENV
+silence_warnings { RAILS_ENV = ENV['RAILS_ENV'] }
+
+# Set default fixture loading properties
+class Test::Unit::TestCase #:nodoc:
+  self.use_transactional_fixtures = true
+  self.use_instantiated_fixtures  = false
+end
