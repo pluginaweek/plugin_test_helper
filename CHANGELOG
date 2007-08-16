@@ -1,5 +1,7 @@
 *SVN*
 
+* Autoload plugin even if the plugin doesn't define an app_root
+
 * A proxy plugin for the plugin being tested is no longer needed in favor of doing selective plugin loading.
 
 * Make sure RAILS_ROOT is in the load path
