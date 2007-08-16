@@ -1,5 +1,7 @@
 *SVN*
 
+* Convert dos newlines to unix newlines
+
 *0.0.2* (August 15th, 2007)
 
 * Autoload plugin even if the plugin doesn't define an app_root
