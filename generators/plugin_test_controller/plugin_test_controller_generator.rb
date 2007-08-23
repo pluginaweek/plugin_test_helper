@@ -1,6 +1,6 @@
 # Generates the class, helper, and view for a controller in a plugin's test application
 class PluginTestControllerGenerator < PluginAWeek::PluginTestHelper::Generator
-  def manifest
+  def manifest #:nodoc:
     record do |m|
       # Check for class naming collisions.
       m.class_collisions class_path, "#{class_name}Controller", "#{class_name}Helper"

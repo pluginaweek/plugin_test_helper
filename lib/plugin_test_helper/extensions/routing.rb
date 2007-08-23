@@ -1,5 +1,5 @@
 module PluginAWeek #:nodoc:
-  module PluginTestHelper #:nodoc:
+  module PluginTestHelper
     module Extensions #:nodoc:
       # Overrides where the path of the application routes is located so that
       # it defaults to this helper's implementation or can be overridden by the

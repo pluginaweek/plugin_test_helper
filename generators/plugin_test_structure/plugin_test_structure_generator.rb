@@ -1,6 +1,6 @@
 # Generates the test structure for a plugin
 class PluginTestStructureGenerator < Rails::Generator::NamedBase
-  def manifest
+  def manifest #:nodoc:
     record do |m|
       # Paths are relative to our template dir
       plugin_test_root = "vendor/plugins/#{name}/test"

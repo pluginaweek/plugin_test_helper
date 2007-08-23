@@ -2,7 +2,7 @@
 class PluginTestModelGenerator < PluginAWeek::PluginTestHelper::Generator
   default_options :skip_migration => false
   
-  def manifest
+  def manifest #:nodoc:
     record do |m|
       # Check for class naming collisions.
       m.class_collisions class_path, class_name

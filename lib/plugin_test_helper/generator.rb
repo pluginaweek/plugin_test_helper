@@ -1,11 +1,12 @@
 require 'rails_generator'
 
 module PluginAWeek #:nodoc:
-  module PluginTestHelper #:nodoc:
+  module PluginTestHelper
+    # The base generator for creating parts of the test application
     class Generator < Rails::Generator::NamedBase
       attr_accessor :plugin_name
       
-      def initialize(*runtime_args)
+      def initialize(*runtime_args) #:nodoc:
         @plugin_name = runtime_args.first.shift if runtime_args.first.is_a?(Array)
         super(*runtime_args)
       end

@@ -1,6 +1,6 @@
-# Generates the class, helper, and view for a controller in a plugin's test application
+# Generates a test console for the plugin's test application
 class PluginTestConsoleGenerator < Rails::Generator::NamedBase
-  def manifest
+  def manifest #:nodoc:
     record do |m|
       plugin_root = "vendor/plugins/#{name}"
       

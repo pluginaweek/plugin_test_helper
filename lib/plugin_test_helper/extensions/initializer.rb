@@ -1,5 +1,5 @@
 module PluginAWeek #:nodoc:
-  module PluginTestHelper #:nodoc:
+  module PluginTestHelper
     module Extensions #:nodoc:
       # Overrides some of the default values in the Rails configuration so that
       # files can be reused from this test helper or overridden by the plugin
