@@ -1,5 +1,9 @@
 *SVN*
 
+* Add support for running a console on the test application
+
+* Add basic functional tests
+
 * Convert dos newlines to unix newlines
 
 *0.0.2* (August 15th, 2007)

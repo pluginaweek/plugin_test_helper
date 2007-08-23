@@ -5,6 +5,10 @@ environment that simulates its usage in a real application.
 
 == Resources
 
+API
+
+* http://api.pluginaweek.org/plugin_test_helper
+
 Wiki
 
 * http://wiki.pluginaweek.org/Plugin_test_helper
@@ -21,29 +25,19 @@ Development
 
 * http://dev.pluginaweek.org/browser/trunk/plugins/test/plugin_test_helper
 
-== Background
+== Description
 
-As described in http://www.pluginaweek.org/2006/11/24/plugin-tip-of-the-week-testing-your-plugins-the-right-way/,
-plugins often need access to a full Rails environment, whether it be accessing a
-database, simulating controller access, or something else.  Whatever it may be,
-you still need to initialize a Rails environment in order to get your tests
-working.
+Plugins often need to initialize a full Rails environment, whether it be for
+accessing a database or simulating controller access.  Traditionally, this has
+been done by just loading the application that the plugin was added to.
+However, this can cause all sorts of environment variables to change, making it
+seem as though the plugin is having problems when it may be something else. It
+also means that the plugin cannot be tested individually.
 
-Traditionally, this has been done by just loading the application that the
-plugin was added to.  This has many downfalls, the most important of which is
-that loading the application can cause all sorts of things to change, making it
-seem as though the plugin is having problems when it may be something else.  The
-other downfall of this technique is that the plugin cannot be tested individually.
-Instead, it must be part of a Rails application.
-
-== Solution
-
-The solution to this problem is to have the plugin create its own basic Rails
-environment with the ability to override any part of it, be it the database
-configuration, environment configuration, or adding models, controllers, helpers,
-etc.
-
-plugin_test_helper assumes a testing structure like so:
+plugin_test_helper helps solve this problem by allowing plugins to create their
+own basic Rails environment with the ability to override any part of it, be it
+the database configuration, environment configuration, or adding models,
+controllers, helpers, etc.  The following testing structure is assumed:
 
 your_plugin/
 your_plugin/test
@@ -56,11 +50,8 @@ etc.
 The app_root directory is just like your run-of-the-mill Rails application.  It
 can contain the same directories as your full application.
 
-== How to use plugin_test_helper
-
-plugin_test_helper creates stubs for testing a plugin, as described in http://www.pluginaweek.org/2006/11/24
-
-The following generators are available:
+To help generate the various parts of your test application, the following
+generators are available:
 * plugin_test_helper
 * plugin_test_structure
 * plugin_test_model
@@ -74,6 +65,8 @@ configurations or the database configuration), then it will use the existing
 implementation in plugin_test_helper/generators/plugin_test_structure/templates.
 +However+, you can override any of these files by simply defining them in your
 plugin, using the same directory structure.
+
+== Usage
 
 === plugin_test_helper
 
@@ -183,9 +176,26 @@ Example:
   
   0 tests, 0 assertions, 0 failures, 0 errors
 
+=== plugin_test_console
+
+Generates a script for running an interactive console with your plugin's test
+application.
+
+Example:
+
+  $ ruby script/generate plugin_test_console acts_as_most_popular
+        create  vendor/plugins/acts_as_most_popular/test/app_root/../../script
+        create  vendor/plugins/acts_as_most_popular/test/app_root/../../script/console
+  Loaded suite script/generate
+  Started
+  
+  Finished in 0.000267 seconds.
+  
+  0 tests, 0 assertions, 0 failures, 0 errors
+
 == Dependencies
 
-This plugin does not depend on any other plugins.
+This plugin does not depend on the presence of any other plugins.
 
 == Credits
 
