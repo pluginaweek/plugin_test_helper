@@ -33,7 +33,7 @@ spec = Gem::Specification.new do |s|
   s.platform        = Gem::Platform::RUBY
   s.summary         = 'Simplifies plugin testing by creating an isolated Rails environment that simulates its usage in a real application.'
   
-  s.files           = FileList['{generators,lib}/**/*'].to_a + %w(CHANGELOG init.rb MIT-LICENSE Rakefile README)
+  s.files           = FileList['{generators,lib,test}/**/*'].to_a + %w(CHANGELOG init.rb MIT-LICENSE Rakefile README)
   s.require_path    = 'lib'
   s.autorequire     = 'plugin_test_helper'
   s.has_rdoc        = true
