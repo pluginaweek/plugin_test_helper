@@ -9,11 +9,11 @@ class PluginTestModelGenerator < PluginAWeek::PluginTestHelper::Generator
       
       # Model and fixture directories.
       m.directory File.join(plugin_app_root, 'app/models', class_path)
-      m.directory File.join(plugin_app_root, 'test/fixtures', class_path)
+      m.directory File.join(plugin_test_root, 'fixtures', class_path)
       
       # Model class and fixtures.
       m.template 'model.rb',      File.join(plugin_app_root, 'app/models', class_path, "#{file_name}.rb")
-      m.template 'fixtures.yml',  File.join(plugin_app_root, 'test/fixtures', class_path, "#{table_name}.yml")
+      m.template 'fixtures.yml',  File.join(plugin_test_root, 'fixtures', class_path, "#{table_name}.yml")
       
       unless options[:skip_migration]
         m.migration_template 'migration.rb', "#{plugin_app_root}/db/migrate", :assigns => {

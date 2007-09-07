@@ -1,5 +1,7 @@
 *SVN*
 
+* Load fixtures from plugin_root/test/fixtures instead of plugin_root/test/app_root/test/fixtures
+
 * Add support for running a console on the test application
 
 * Add basic functional tests
