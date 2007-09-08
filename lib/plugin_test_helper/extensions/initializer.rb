@@ -22,7 +22,7 @@ module PluginAWeek #:nodoc:
         end
         
         private
-        	# Add the helper's load paths
+          # Add the helper's load paths
           def default_load_paths_with_test_helper
             paths = default_load_paths_without_test_helper
             paths.concat %w(
@@ -48,8 +48,8 @@ module PluginAWeek #:nodoc:
           
           # Add the helper's vendor/plugins path
           def default_plugin_paths_with_test_helper
-          	paths = default_plugin_paths_without_test_helper
-          	paths << "#{HELPER_RAILS_ROOT}/vendor/plugins"
+            paths = default_plugin_paths_without_test_helper
+            paths << "#{HELPER_RAILS_ROOT}/vendor/plugins"
           end
       end
     end

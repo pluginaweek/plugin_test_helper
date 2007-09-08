@@ -9,13 +9,13 @@ class PluginTestStructureGenerator < Rails::Generator::NamedBase
       # Copy all directories and files.  None of them are templated so that they
       # can be reused during runtime
       Dir["#{templates_root}/**/*"].each do |source_file|
-      	relative_source_file = source_file.sub(templates_root, '')
+        relative_source_file = source_file.sub(templates_root, '')
         target_file = File.join(plugin_test_root, relative_source_file)
         
         if File.directory?(source_file)
           m.directory target_file
-      	else
-      	  m.file relative_source_file, target_file
+        else
+          m.file relative_source_file, target_file
         end
       end
     end
