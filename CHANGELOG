@@ -1,5 +1,7 @@
 *SVN*
 
+*0.1.1* (September 18th, 2007)
+
 * Allow RAILS_FRAMEWORK_ROOT to be specified
 
 * fixture_path should be a string, not an array

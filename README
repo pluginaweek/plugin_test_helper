@@ -1,6 +1,6 @@
 = plugin_test_helper
 
-plugin_test_helper simplifies plugin testing by creating an isolated Rails
++plugin_test_helper+ simplifies plugin testing by creating an isolated Rails
 environment that simulates its usage in a real application.
 
 == Resources
@@ -25,7 +25,7 @@ Development
 
 * http://dev.pluginaweek.org/browser/trunk/plugins/test/plugin_test_helper
 
-== Description
+== Descriptiona
 
 Plugins often need to initialize a full Rails environment, whether it be for
 accessing a database or simulating controller access.  Traditionally, this has
@@ -34,20 +34,20 @@ However, this can cause all sorts of environment variables to change, making it
 seem as though the plugin is having problems when it may be something else. It
 also means that the plugin cannot be tested individually.
 
-plugin_test_helper helps solve this problem by allowing plugins to create their
++plugin_test_helper+ helps solve this problem by allowing plugins to create their
 own basic Rails environment with the ability to override any part of it, be it
 the database configuration, environment configuration, or adding models,
 controllers, helpers, etc.  The following testing structure is assumed:
 
-your_plugin/
-your_plugin/test
-your_plugin/test/app_root
-your_plugin/test/app_root/app
-your_plugin/test/app_root/config
-your_plugin/test/app_root/db
-etc.
+  your_plugin/
+  your_plugin/test
+  your_plugin/test/app_root
+  your_plugin/test/app_root/app
+  your_plugin/test/app_root/config
+  your_plugin/test/app_root/db
+  etc.
 
-The app_root directory is just like your run-of-the-mill Rails application.  It
+The +app_root+ directory is just like your run-of-the-mill Rails application.  It
 can contain the same directories as your full application.
 
 To help generate the various parts of your test application, the following
@@ -58,12 +58,12 @@ generators are available:
 * plugin_test_controller
 * plugin_test_migration
 
-+NOTE+ that you +DO NOT+ need to generate the entire application structure.  All
+*NOTE* that you <b>DO NOT</b> need to generate the entire application structure.  All
 that is required is that your test helper load plugin_test_helper.  If you do
 not define a part of the test application (such as the environment
 configurations or the database configuration), then it will use the existing
-implementation in plugin_test_helper/generators/plugin_test_structure/templates.
-+However+, you can override any of these files by simply defining them in your
+implementation in <tt>plugin_test_helper/generators/plugin_test_structure/templates</tt>.
+*However*, you can override any of these files by simply defining them in your
 plugin, using the same directory structure.
 
 == Usage
@@ -87,7 +87,7 @@ Example:
 === plugin_test_structure
 
 Generates the entire test application structure.  If you keep all files within
-your plugin, then you will not need to depend on the plugin_test_helper plugin
+your plugin, then you will not need to depend on the +plugin_test_helper+ plugin
 when testing it.
 
 Example:
@@ -197,8 +197,6 @@ Example:
 
 This plugin does not depend on the presence of any other plugins.
 
-== Credits
+== References
 
-Kudos to Mark Meves over at http://rationalexuberance.org for working on the
-initial implementation of this plugin. His work has made testing our plugins so
-much easier. Thanks Mark!
+* {Mark Meves}[http://rationalexuberance.org] for the initial implementation
