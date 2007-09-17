@@ -9,9 +9,13 @@ unless defined?(RAILS_ROOT)
   RAILS_ROOT = root_path
 end
 
+unless defined?(RAILS_FRAMEWORK_ROOT) 
+  RAILS_FRAMEWORK_ROOT = ENV['RAILS_FRAMEWORK_ROOT'] || "#{RAILS_ROOT}/vendor/rails"
+end
+
 unless defined?(Rails::Initializer)
-  if File.directory?("#{RAILS_ROOT}/vendor/rails")
-    require "#{RAILS_ROOT}/vendor/rails/railties/lib/initializer"
+  if File.directory?(RAILS_FRAMEWORK_ROOT)
+    require "#{RAILS_FRAMEWORK_ROOT}/railties/lib/initializer"
   else
     require 'rubygems'
 

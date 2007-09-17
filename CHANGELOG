@@ -1,6 +1,14 @@
 *SVN*
 
-* Load fixtures from plugin_root/test/fixtures instead of plugin_root/test/app_root/test/fixtures
+* Allow RAILS_FRAMEWORK_ROOT to be specified
+
+* fixture_path should be a string, not an array
+
+* Move test fixtures out of the test application root directory
+
+*0.1.0* (September 5th, 2007)
+
+* Fixtures are now expected to be in plugin_root/test/fixtures instead of plugin_root/test/app_root/test/fixtures
 
 * Add support for running a console on the test application
 
@@ -23,3 +31,4 @@
 *0.0.1* (May 31st, 2007)
 
 * Initial release
+
