@@ -5,25 +5,25 @@ environment that simulates its usage in a real application.
 
 == Resources
 
-API
+Announcement
 
-* http://api.pluginaweek.org/plugin_test_helper
+* http://www.pluginaweek.org
 
 Wiki
 
 * http://wiki.pluginaweek.org/Plugin_test_helper
 
-Announcement
+API
 
-* http://www.pluginaweek.org
-
-Source
-
-* http://svn.pluginaweek.org/trunk/plugins/test/plugin_test_helper
+* http://api.pluginaweek.org/plugin_test_helper
 
 Development
 
 * http://dev.pluginaweek.org/browser/trunk/plugins/test/plugin_test_helper
+
+Source
+
+* http://svn.pluginaweek.org/trunk/plugins/test/plugin_test_helper
 
 == Descriptiona
 
