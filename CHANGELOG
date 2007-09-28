@@ -1,5 +1,9 @@
 *SVN*
 
+* Don't load actionwebservice by default
+
+* Remove unnecessary configuration options from environment
+
 *0.1.1* (September 18th, 2007)
 
 * Allow RAILS_FRAMEWORK_ROOT to be specified
