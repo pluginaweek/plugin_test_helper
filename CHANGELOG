@@ -1,5 +1,7 @@
 *SVN*
 
+* Don't create vendor/plugins in the plugin_test_structure generator
+
 * Don't load actionwebservice by default
 
 * Remove unnecessary configuration options from environment

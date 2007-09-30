@@ -25,7 +25,7 @@ Source
 
 * http://svn.pluginaweek.org/trunk/plugins/test/plugin_test_helper
 
-== Descriptiona
+== Description
 
 Plugins often need to initialize a full Rails environment, whether it be for
 accessing a database or simulating controller access.  Traditionally, this has
@@ -94,13 +94,9 @@ Example:
 
   $ ruby script/generate plugin_test_structure acts_as_most_popular
         create  vendor/plugins/acts_as_most_popular/test/app_root
-        create  vendor/plugins/acts_as_most_popular/test/app_root/vendor
         create  vendor/plugins/acts_as_most_popular/test/app_root/config
         create  vendor/plugins/acts_as_most_popular/test/app_root/app
         create  vendor/plugins/acts_as_most_popular/test/app_root/lib
-        create  vendor/plugins/acts_as_most_popular/test/app_root/vendor/plugins
-        create  vendor/plugins/acts_as_most_popular/test/app_root/vendor/plugins/plugin_proxy
-        create  vendor/plugins/acts_as_most_popular/test/app_root/vendor/plugins/plugin_proxy/init.rb
         create  vendor/plugins/acts_as_most_popular/test/app_root/config/environments
         create  vendor/plugins/acts_as_most_popular/test/app_root/config/routes.rb
         create  vendor/plugins/acts_as_most_popular/test/app_root/config/boot.rb
