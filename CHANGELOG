@@ -1,5 +1,7 @@
 *SVN*
 
+*0.1.2* (October 15th, 2007)
+
 * Don't create vendor/plugins in the plugin_test_structure generator
 
 * Don't load actionwebservice by default
