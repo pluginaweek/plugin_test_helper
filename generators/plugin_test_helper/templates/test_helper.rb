@@ -6,4 +6,4 @@ require 'rubygems'
 require 'plugin_test_helper'
 
 # Run the migrations (optional)
-ActiveRecord::Migrator.migrate("#{RAILS_ROOT}/db/migrate")
+# ActiveRecord::Migrator.migrate("#{RAILS_ROOT}/db/migrate")

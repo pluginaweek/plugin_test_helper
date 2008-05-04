@@ -4,10 +4,10 @@ class PluginTestConsoleGenerator < Rails::Generator::NamedBase
     record do |m|
       plugin_root = "vendor/plugins/#{name}"
       
-      # Script directory.
+      # Script directory
       m.directory File.join(plugin_root, 'script')
       
-      # Console class.
+      # Console class
       m.file 'console', File.join(plugin_root, 'script/console')
     end
   end

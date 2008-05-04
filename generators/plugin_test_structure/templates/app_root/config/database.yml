@@ -13,7 +13,6 @@ postgresql:
   username: postgres
   password: postgres
   database: plugin_test
-  min_messages: ERROR
 mysql:
   adapter: mysql
   host: localhost

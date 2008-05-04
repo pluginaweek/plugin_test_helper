@@ -1,42 +1,26 @@
 # Make sure our default RAILS_ROOT from the helper plugin is in the load path
-unless defined?(HELPER_RAILS_ROOT)
-  HELPER_RAILS_ROOT = "#{File.dirname(__FILE__)}/../generators/plugin_test_structure/templates/app_root"
-end
+HELPER_RAILS_ROOT = "#{File.dirname(__FILE__)}/../generators/plugin_test_structure/templates/app_root" unless defined?(HELPER_RAILS_ROOT)
 $:.unshift(HELPER_RAILS_ROOT)
 
 # Determine the plugin's root test directory and add it to the load path
-unless defined?(RAILS_ROOT)
-  root_path = File.join(File.expand_path('.'), 'test/app_root')
-  
-  unless RUBY_PLATFORM =~ /(:?mswin|mingw)/
-    require 'pathname'
-    root_path = Pathname.new(root_path).cleanpath(true).to_s
-  end
-  
-  RAILS_ROOT = root_path
-end
+RAILS_ROOT = (File.directory?('./test/app_root') ? './test/app_root' : HELPER_RAILS_ROOT) unless defined?(RAILS_ROOT)
 $:.unshift(RAILS_ROOT)
 
 # Set the default environment to sqlite3's in_memory database
 ENV['RAILS_ENV'] ||= 'in_memory'
 
-# Load the default framework libraries
+# First boost the Rails framework
 require 'config/boot'
-require 'active_support'
-require 'action_controller'
 
-# Load extensions for helping determine where certain environment files are
-# located
-require 'plugin_test_helper/generator'
+# Extend it so that we can hook into the initialization process
 require 'plugin_test_helper/extensions/initializer'
-require 'plugin_test_helper/extensions/routing'
 
 # Load the Rails environment and testing framework
 require_or_load 'config/environment'
 require_or_load 'test_help'
 
 # Undo changes to RAILS_ENV
-silence_warnings { RAILS_ENV = ENV['RAILS_ENV'] }
+silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}
 
 # Set default fixture loading properties
 class Test::Unit::TestCase #:nodoc:

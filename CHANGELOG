@@ -1,5 +1,15 @@
 *SVN*
 
+*0.1.3* (May 5th, 2008)
+
+* Update documentation
+
+* Update to be compatible with Rails 2.1
+
+* Add PluginAWeek::PluginTestHelper::PluginLocator so that you don't have to explicitly define config.plugins if the test app has anything under vendor/plugins
+
+* Add default routes
+
 *0.1.2* (October 15th, 2007)
 
 * Don't create vendor/plugins in the plugin_test_structure generator

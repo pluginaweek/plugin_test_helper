@@ -12,7 +12,6 @@ module PluginAWeek #:nodoc:
       end
       
       private
-      
         def plugin_test_root
           "vendor/plugins/#{plugin_name}/test"
         end
