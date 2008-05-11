@@ -14,8 +14,8 @@ module PluginAWeek #:nodoc:
         
         # Load routes from either the helper or the plugin
         def reload_with_test_helper
-          if @routes_last_modified && defined?(RAILS_ROOT)
-            routes_path = File.join("#{RAILS_ROOT}/config/routes.rb")
+          if @routes_last_modified && defined?(Rails.root)
+            routes_path = File.join("#{Rails.root}/config/routes.rb")
             routes_path = File.join("#{HELPER_RAILS_ROOT}/config/routes.rb") unless File.exists?(routes_path)
             
             mtime = File.stat(routes_path).mtime
@@ -29,8 +29,8 @@ module PluginAWeek #:nodoc:
         
         # Load routes from either the helper or the plugin
         def load_routes_with_test_helper!
-          if defined?(RAILS_ROOT) && defined?(::ActionController::Routing::Routes) && self == ::ActionController::Routing::Routes
-            routes_path = File.join("#{RAILS_ROOT}/config/routes.rb")
+          if defined?(Rails.root) && defined?(::ActionController::Routing::Routes) && self == ::ActionController::Routing::Routes
+            routes_path = File.join("#{Rails.root}/config/routes.rb")
             routes_path = File.join("#{HELPER_RAILS_ROOT}/config/routes.rb") unless File.exists?(routes_path)
             
             load File.join(routes_path)

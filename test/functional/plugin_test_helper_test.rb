@@ -48,14 +48,14 @@ class PluginTestHelperTest < Test::Unit::TestCase
   def test_should_load_with_migration
     setup_app('with_migration')
     
-    ActiveRecord::Migrator.migrate("#{RAILS_ROOT}/db/migrate")
+    ActiveRecord::Migrator.migrate("#{Rails.root}/db/migrate")
     assert Person.table_exists?
   end
   
   def test_should_load_with_fixtures
     setup_app('with_fixtures')
     
-    ActiveRecord::Migrator.migrate("#{RAILS_ROOT}/db/migrate")
+    ActiveRecord::Migrator.migrate("#{Rails.root}/db/migrate")
     
     fixtures_path = "#{File.dirname(__FILE__)}/../fixtures"
     Dir.glob("#{fixtures_path}/*.yml").each do |fixture_file|

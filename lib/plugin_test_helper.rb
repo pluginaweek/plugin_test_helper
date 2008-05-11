@@ -26,5 +26,5 @@ silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}
 class Test::Unit::TestCase #:nodoc:
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false
-  self.fixture_path = "#{RAILS_ROOT}/../fixtures"
+  self.fixture_path = "#{Rails.root}/../fixtures"
 end
