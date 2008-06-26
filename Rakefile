@@ -19,7 +19,7 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.title    = 'PluginTestHelper'
   rdoc.template = '../rdoc_template.rb'
   rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
+  rdoc.rdoc_files.include('README.rdoc')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
@@ -29,7 +29,7 @@ spec = Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.summary           = 'Simplifies plugin testing by creating an isolated Rails environment that simulates its usage in a real application.'
   
-  s.files             = FileList['{generators,lib,test}/**/*'].to_a - FileList['generators/plugin_test_structure/templates/app_root/log/*'].to_a + %w(CHANGELOG init.rb MIT-LICENSE Rakefile README)
+  s.files             = FileList['{generators,lib,test}/**/*'].to_a - FileList['generators/plugin_test_structure/templates/app_root/log/*'].to_a + %w(CHANGELOG init.rb LICENSE Rakefile README.rdoc)
   s.require_path      = 'lib'
   s.has_rdoc          = true
   s.test_files        = Dir['test/**/*_test.rb']
