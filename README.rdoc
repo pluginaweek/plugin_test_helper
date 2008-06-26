@@ -5,21 +5,21 @@ environment that simulates its usage in a real application.
 
 == Resources
 
-Wiki
-
-* http://wiki.pluginaweek.org/Plugin_test_helper
-
 API
 
 * http://api.pluginaweek.org/plugin_test_helper
 
+Bugs
+
+* http://pluginaweek.lighthouseapp.com/projects/13283-plugin_test_helper
+
 Development
 
-* http://dev.pluginaweek.org/browser/trunk/plugin_test_helper
+* http://github.com/pluginaweek/plugin_test_helper
 
 Source
 
-* http://svn.pluginaweek.org/trunk/plugin_test_helper
+* git://github.com/pluginaweek/plugin_test_helper.git
 
 == Description
 
