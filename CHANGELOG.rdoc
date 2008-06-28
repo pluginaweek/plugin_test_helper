@@ -1,58 +1,44 @@
-*SVN*
+== master
 
-*0.1.4* (June 22nd, 2008)
+== 0.1.4 / 2008-06-22
 
 * Remove log files from gems
 
-*0.1.3* (May 5th, 2008)
+== 0.1.3 / 2008-05-05
 
 * Update documentation
-
 * Update to be compatible with Rails 2.1
-
 * Add PluginAWeek::PluginTestHelper::PluginLocator so that you don't have to explicitly define config.plugins if the test app has anything under vendor/plugins
-
 * Add default routes
 
-*0.1.2* (October 15th, 2007)
+== 0.1.2 / 2007-10-15
 
 * Don't create vendor/plugins in the plugin_test_structure generator
-
 * Don't load actionwebservice by default
-
 * Remove unnecessary configuration options from environment
 
-*0.1.1* (September 18th, 2007)
+== 0.1.1 / 2007-09-18
 
 * Allow RAILS_FRAMEWORK_ROOT to be specified
-
 * fixture_path should be a string, not an array
-
 * Move test fixtures out of the test application root directory
 
-*0.1.0* (September 5th, 2007)
+== 0.1.0 / 2007-09-05
 
 * Fixtures are now expected to be in plugin_root/test/fixtures instead of plugin_root/test/app_root/test/fixtures
-
 * Add support for running a console on the test application
-
 * Add basic functional tests
-
 * Convert dos newlines to unix newlines
 
-*0.0.2* (August 15th, 2007)
+== 0.0.2 / 2007-08-15
 
 * Autoload plugin even if the plugin doesn't define an app_root
-
 * A proxy plugin for the plugin being tested is no longer needed in favor of doing selective plugin loading.
-
 * Make sure RAILS_ROOT is in the load path
-
 * Automate setting of the fixtures path
-
 * Load test_help instead of test/unit so that additional libraries are automatically loaded like they are in your application's tests
 
-*0.0.1* (May 31st, 2007)
+== 0.0.1 / 2007-05-31
 
 * Initial release
 
