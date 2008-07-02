@@ -1,5 +1,7 @@
 == master
 
+* Simplify how to determine which routing file to use
+
 == 0.1.4 / 2008-06-22
 
 * Remove log files from gems

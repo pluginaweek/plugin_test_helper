@@ -18,7 +18,6 @@ module PluginAWeek #:nodoc:
           require_frameworks_without_test_helper
           
           require 'plugin_test_helper/generator'
-          require 'plugin_test_helper/extensions/routing'
         end
       end
       
@@ -31,6 +30,7 @@ module PluginAWeek #:nodoc:
             alias_method_chain :environment_path, :test_helper
             alias_method_chain :default_load_paths, :test_helper
             alias_method_chain :default_database_configuration_file, :test_helper
+            alias_method_chain :default_routes_configuration_file, :test_helper
             alias_method_chain :default_controller_paths, :test_helper
             alias_method_chain :default_plugin_locators, :test_helper
             alias_method_chain :default_plugin_paths, :test_helper
@@ -62,6 +62,12 @@ module PluginAWeek #:nodoc:
             File.exists?(database_file) ? database_file : File.join(HELPER_RAILS_ROOT, 'config/database.yml')
           end
           
+          # Load the routes configuration file from the plugin or the helper
+          def default_routes_configuration_file_with_test_helper
+            routes_file = default_routes_configuration_file_without_test_helper
+            File.exists?(routes_file) ? routes_file : File.join(HELPER_RAILS_ROOT, 'config/routes.rb')
+          end
+          
           # Add the helper's controllers path
           def default_controller_paths_with_test_helper
             paths = default_controller_paths_without_test_helper
@@ -77,7 +83,7 @@ module PluginAWeek #:nodoc:
           # Add the helper's vendor/plugins path
           def default_plugin_paths_with_test_helper
             paths = default_plugin_paths_without_test_helper
-            paths << File.join(HELPER_RAILS_ROOT, '/vendor/plugins')
+            paths << File.join(HELPER_RAILS_ROOT, 'vendor/plugins')
           end
       end
     end

@@ -37,7 +37,7 @@ begin
     Rcov::RcovTask.new(:rcov) do |t|
       t.libs << 'lib'
       t.test_files = spec.test_files
-      t.rcov_opts << '--exclude="^(?!lib/)"'
+      t.rcov_opts << '--exclude="^(?!lib/|generators/.*/.*_generator.rb)"'
       t.verbose = true
     end
   end
