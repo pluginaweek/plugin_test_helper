@@ -2,8 +2,13 @@
 class PluginTestHelperGenerator < Rails::Generator::NamedBase
   def manifest #:nodoc:
     record do |m|
-      plugin_test_root = "vendor/plugins/#{name}/test"
-      m.file 'test_helper.rb', "#{plugin_test_root}/test_helper.rb"
+      plugin_root = "vendor/plugins/#{name}"
+      
+      # Test directory
+      m.directory File.join(plugin_root, 'test')
+      
+      # Test helper
+      m.file 'test_helper.rb', File.join(plugin_root, 'test/test_helper.rb')
     end
   end
   
