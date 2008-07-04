@@ -3,3 +3,4 @@ generators/plugin_test_structure/templates/app_root/log
 pkg
 rdoc
 test/app_root/log
+test/app_root/script
