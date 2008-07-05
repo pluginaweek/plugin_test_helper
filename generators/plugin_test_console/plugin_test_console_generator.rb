@@ -1,4 +1,4 @@
-# Generates a test console for the plugin's test application
+# Generates a test console for the plugin's test application. This 
 class PluginTestConsoleGenerator < Rails::Generator::NamedBase
   def manifest #:nodoc:
     record do |m|

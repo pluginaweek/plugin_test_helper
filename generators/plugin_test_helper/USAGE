@@ -1,0 +1,11 @@
+Description:
+    Creates the test helper that should be required for every unit/functional test.
+    Pass the plugin name, under_scored.
+
+    The test helper is generated in test/.
+
+Example:
+    `./script/generate plugin_test_helper has_comments`
+
+    creates an test helper:
+        Test Helper:   test/test_helper.rb

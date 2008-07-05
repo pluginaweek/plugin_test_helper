@@ -1,0 +1,13 @@
+Description:
+    Stubs out a new database migration. Pass the plugin name, migration name
+    (either CamelCased or under_scored), and an optional list of attribute pairs
+    as arguments.
+
+    A migration class is generated in test/app_root/db/migrate prefixed by a
+    timestamp of the current date and time.
+
+Example:
+    `./script/generate plugin_test_migration has_comments AddPosts`
+
+    If the current date is May 14, 2008 and the current time 09:09:12, this creates the AddPosts migration
+    db/migrate/20080514090912_add_posts.rb

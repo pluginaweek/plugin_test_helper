@@ -1,0 +1,14 @@
+Description:
+    Stubs out a new model. Pass the plugin name, model name, either CamelCased or
+    under_scored, and an optional list of attribute pairs as arguments.
+
+    This generates a model class in test/app_root/app/models, a test fixture in
+    test/fixtures/singular_name.yml, and a migration in test/app_root/db/migrate.
+
+Examples:
+    `./script/generate plugin_test_model has_comments post`
+
+        creates an Post model, fixture, and migration:
+            Model:      test/app_root/app/models/post.rb
+            Fixtures:   test/fixtures/posts.yml
+            Migration:  test/app_root/db/migrate/XXX_add_posts.rb

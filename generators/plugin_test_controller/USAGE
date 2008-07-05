@@ -1,0 +1,13 @@
+Description:
+    Stubs out a new controller and its views within a plugin. Pass the plugin name,
+    controller name (either CamelCased or under_scored) and a list of views as arguments.
+
+    This generates a controller class in app_root/app/controllers and view
+    templates in app_root/app/views/controller_name.
+
+Example:
+    `./script/generate plugin_test_controller has_comments Posts index show`
+
+    Post controller with URLs like /posts/index.
+        Controller: app/controllers/posts_controller.rb
+        Views:      app/views/posts/index.html.erb [...]

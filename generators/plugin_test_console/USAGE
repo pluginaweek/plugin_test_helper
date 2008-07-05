@@ -1,0 +1,10 @@
+Description:
+    Creates a script that will allow the test app to be run via the ruby console. Pass the plugin name, under_scored.
+
+    The console script is generated in test/app_root/script.
+
+Example:
+    `./script/generate plugin_test_console has_comments`
+
+    creates an console script:
+        Console:   test/app_root/script/console

@@ -1,0 +1,19 @@
+Description:
+    Stubs out a new test application. Pass the plugin name, under_scored.
+
+    This generates the application structure in test/app_root
+
+Examples:
+    `./script/generate plugin_test_structure has_comments`
+
+        creates a controller and application configurations:
+            Controller:     test/app_root/app/controllers/application.rb
+            Configurations: test/app_root/config/boot.rb
+                            test/app_root/config/database.yml
+                            test/app_root/config/environment.rb
+                            test/app_root/config/routes.rb
+                            test/app_root/config/environments/in_memory.rb
+                            test/app_root/config/environments/mysql.rb
+                            test/app_root/config/environments/postgresql.rb
+                            test/app_root/config/environments/sqlite.rb
+                            test/app_root/config/environments/sqlite3.rb
