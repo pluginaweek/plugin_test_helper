@@ -16,8 +16,8 @@ require 'config/boot'
 require 'plugin_test_helper/extensions/initializer'
 
 # Load the Rails environment and testing framework
-require_or_load 'config/environment'
-require_or_load 'test_help'
+require 'config/environment'
+require 'test_help'
 
 # Undo changes to RAILS_ENV
 silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}

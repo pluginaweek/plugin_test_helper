@@ -1,4 +1,3 @@
-require 'active_support'
 require 'plugin_test_helper/plugin_locator'
 
 module PluginAWeek #:nodoc:
@@ -9,7 +8,8 @@ module PluginAWeek #:nodoc:
       module Initializer
         def self.included(base)
           base.class_eval do
-            alias_method_chain :require_frameworks, :test_helper
+            alias_method :require_frameworks_without_test_helper, :require_frameworks
+            alias_method :require_frameworks, :require_frameworks_with_test_helper
           end
         end
         
@@ -26,14 +26,23 @@ module PluginAWeek #:nodoc:
       # using the helper
       module Configuration
         def self.included(base) #:nodoc:
-          base.class_eval do
-            alias_method_chain :environment_path, :test_helper
-            alias_method_chain :default_load_paths, :test_helper
-            alias_method_chain :default_database_configuration_file, :test_helper
-            alias_method_chain :default_routes_configuration_file, :test_helper
-            alias_method_chain :default_controller_paths, :test_helper
-            alias_method_chain :default_plugin_locators, :test_helper
-            alias_method_chain :default_plugin_paths, :test_helper
+          alias_method_chain base, :environment_path, :test_helper
+          alias_method_chain base, :default_load_paths, :test_helper
+          alias_method_chain base, :default_database_configuration_file, :test_helper
+          alias_method_chain base, :default_routes_configuration_file, :test_helper
+          alias_method_chain base, :default_controller_paths, :test_helper
+          alias_method_chain base, :default_plugin_locators, :test_helper
+          alias_method_chain base, :default_plugin_paths, :test_helper
+        end
+        
+        # Defines a "lite" version of ActiveSupport's alias chaining extensions.
+        # This is defined here and acts on a particular class so as to not conflict
+        # with other classes that we have no control over
+        def self.alias_method_chain(klass, target, feature)
+          with_method, without_method = "#{target}_with_#{feature}", "#{target}_without_#{feature}"
+          klass.class_eval do
+            alias_method without_method, target
+            alias_method target, with_method
           end
         end
         

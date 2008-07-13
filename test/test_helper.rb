@@ -26,5 +26,10 @@ class Test::Unit::TestCase
       ActiveRecord::Base.reset_subclasses
       Dependencies.clear
       ActiveRecord::Base.clear_reloadable_connections!
+      
+      # Forget that the environment files were loaded so that a new app environment
+      # can be set up again
+      $".delete('config/environment.rb')
+      $".delete('test_help.rb')
     end
 end
