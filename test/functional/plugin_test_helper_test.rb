@@ -75,6 +75,5 @@ class PluginTestHelperTest < Test::Unit::TestCase
     teardown_app
     
     $LOAD_PATH.replace(@original_load_path)
-    FileUtils.rm_r(Dir.glob('test/app_root/*'))
   end
 end

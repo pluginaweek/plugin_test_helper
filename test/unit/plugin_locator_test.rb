@@ -13,7 +13,6 @@ class PluginLocatorTest < Test::Unit::TestCase
   
   def teardown
     teardown_app
-    $LOAD_PATH.replace(@original_load_path)
-    FileUtils.rm_r(Dir.glob('test/app_root/*'))    
+    $LOAD_PATH.replace(@original_load_path)  
   end
 end

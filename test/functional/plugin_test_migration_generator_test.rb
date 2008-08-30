@@ -18,6 +18,5 @@ class PluginTestMigrationGeneratorTest < Test::Unit::TestCase
   
   def teardown
     teardown_app
-    FileUtils.rm_r(Dir.glob('test/app_root/*'))
   end
 end
