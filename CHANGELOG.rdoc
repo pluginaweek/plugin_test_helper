@@ -1,5 +1,7 @@
 == master
 
+* Automatically load ActionView::TestCase
+
 == 0.1.5 / 2008-07-13
 
 * Don't load ActiveSupport before the environment has been initialized since it can hide problems in the plugin being tested
