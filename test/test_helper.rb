@@ -13,7 +13,7 @@ require 'logger'
 require 'stringio'
 Object.const_set('RAILS_DEFAULT_LOGGER', Logger.new(StringIO.new))
 
-class Test::Unit::TestCase
+Test::Unit::TestCase.class_eval do
   private
     def assert_valid_environment
       assert_not_nil ApplicationController
