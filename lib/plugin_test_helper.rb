@@ -26,7 +26,7 @@ require 'action_view/test_case'
 silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}
 
 # Set default fixture loading properties
-class Test::Unit::TestCase #:nodoc:
+Test::Unit::TestCase.class_eval do
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false
   self.fixture_path = "#{Rails.root}/../fixtures"
