@@ -19,7 +19,7 @@ require 'plugin_test_helper/extensions/initializer'
 require 'config/environment'
 require 'test_help'
 
-# Load additional test classes not done automaticall by Rails
+# Load additional test classes not done automatically by Rails
 require 'action_view/test_case'
 
 # Undo changes to RAILS_ENV
