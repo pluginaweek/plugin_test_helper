@@ -1,5 +1,5 @@
 # Allow customization of the rails framework path
-RAILS_FRAMEWORK_ROOT = (ENV['RAILS_FRAMEWORK_ROOT'] || "#{RAILS_ROOT}/vendor/rails") unless defined?(RAILS_FRAMEWORK_ROOT) 
+RAILS_FRAMEWORK_ROOT = (ENV['RAILS_FRAMEWORK_ROOT'] || "#{File.dirname(__FILE__)}/../../../../../../vendor/rails") unless defined?(RAILS_FRAMEWORK_ROOT) 
 
 # Don't change this file!
 # Configure your app in config/environment.rb and config/environments/*.rb
