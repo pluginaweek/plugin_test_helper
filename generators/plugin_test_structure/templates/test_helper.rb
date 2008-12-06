@@ -4,6 +4,7 @@ ENV['RAILS_ENV'] ||= 'in_memory'
 # Load the Rails environment and testing framework
 require "#{File.dirname(__FILE__)}/app_root/config/environment"
 require 'test_help'
+require 'action_view/test_case' # Load additional test classes not done automatically by < Rails 2.2.2
 
 # Undo changes to RAILS_ENV
 silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}

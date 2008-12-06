@@ -19,6 +19,10 @@ require 'plugin_test_helper/extensions/initializer'
 require 'config/environment'
 require 'test_help'
 
+# Load additional test classes not done automatically by < Rails 2.2.2
+# TODO: Remove in Rails 2.2.3 / 2.3 (whichever includes the fix)
+require 'action_view/test_case'
+
 # Undo changes to RAILS_ENV
 silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}
 
