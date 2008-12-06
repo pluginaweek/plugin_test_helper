@@ -1,5 +1,7 @@
 == master
 
+* Update boot file to Rails 2.2+ requirements (i.e. RubyGems 1.1.1+)
+* Fix tests to reference ActiveSupport::Dependencies instead of Dependencies
 * Automatically load ActionView::TestCase
 
 == 0.1.5 / 2008-07-13
