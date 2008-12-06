@@ -18,4 +18,4 @@ Examples:
                             test/app_root/config/environments/postgresql.rb
                             test/app_root/config/environments/sqlite.rb
                             test/app_root/config/environments/sqlite3.rb
-                            test/app_root/script/console
+            Scripts:        test/app_root/script/console
