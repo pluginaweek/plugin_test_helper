@@ -1,4 +1,4 @@
-# Generates the class, helper, and view for a controller in a plugin's test application
+# Generates the class and view for a controller in a plugin's test application
 class PluginTestControllerGenerator < PluginAWeek::PluginTestHelper::Generator
   def manifest #:nodoc:
     record do |m|
