@@ -10,6 +10,10 @@ class PluginTestStructureGeneratorTest < Test::Unit::TestCase
     Rails::Generator::Scripts::Generate.new.run(['plugin_test_structure', 'acts_as_foo'])
   end
   
+  def test_should_create_test_helper
+    assert File.exists?("#{Rails.root}/vendor/plugins/acts_as_foo/test/test_helper.rb")
+  end
+  
   def test_should_create_application_controller
     assert File.exists?("#{Rails.root}/vendor/plugins/acts_as_foo/test/app_root/app/controllers/application.rb")
   end
@@ -48,6 +52,10 @@ class PluginTestStructureGeneratorTest < Test::Unit::TestCase
   
   def test_should_create_routes
     assert File.exists?("#{Rails.root}/vendor/plugins/acts_as_foo/test/app_root/config/routes.rb")
+  end
+  
+  def test_should_create_console_script
+    assert File.exists?("#{Rails.root}/vendor/plugins/acts_as_foo/test/app_root/script/console")
   end
   
   def teardown

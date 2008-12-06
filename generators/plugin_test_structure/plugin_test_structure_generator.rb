@@ -1,10 +1,14 @@
-# Generates the test structure for a plugin
+# Generates the test structure for a plugin with no dependencies on the
+# plugin_test_helper library
 class PluginTestStructureGenerator < Rails::Generator::NamedBase
   def manifest #:nodoc:
     record do |m|
       # Paths are relative to our template dir
       plugin_test_root = "vendor/plugins/#{name}/test"
       templates_root = "#{File.dirname(__FILE__)}/templates"
+      
+      # Root test directory
+      m.directory plugin_test_root
       
       # Copy all directories and files.  None of them are templated so that they
       # can be reused during runtime

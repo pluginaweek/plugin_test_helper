@@ -1,12 +1,13 @@
 Description:
-    Stubs out a new test application. Pass the plugin name, under_scored.
+    Stubs out a new test application that has no dependencies in plugin_test_helper. Pass the plugin name, under_scored.
 
     This generates the application structure in test/app_root
 
 Examples:
     `./script/generate plugin_test_structure has_comments`
 
-        creates a controller and application configurations:
+        creates test, controller and application configurations:
+            Test Helper:    test/test_helper.rb
             Controller:     test/app_root/app/controllers/application.rb
             Configurations: test/app_root/config/boot.rb
                             test/app_root/config/database.yml
@@ -17,3 +18,4 @@ Examples:
                             test/app_root/config/environments/postgresql.rb
                             test/app_root/config/environments/sqlite.rb
                             test/app_root/config/environments/sqlite3.rb
+                            test/app_root/script/console
