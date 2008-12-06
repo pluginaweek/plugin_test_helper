@@ -32,7 +32,7 @@ Test::Unit::TestCase.class_eval do
       # Clear dependencies
       self.class.use_transactional_fixtures = false
       ActiveRecord::Base.reset_subclasses
-      Dependencies.clear
+      ActiveSupport::Dependencies.clear
       
       # Reset open streams
       ActiveRecord::Base.clear_reloadable_connections!
