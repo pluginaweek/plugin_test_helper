@@ -1,6 +1,7 @@
 == master
 
-* Update boot file to Rails 2.2+ requirements (i.e. RubyGems 1.1.1+)
+* No longer set use_transactional_fixutres/use_instantiated_fixtures defaults since they're already set by Rails
+* Update boot file to Rails 2.1.1+ requirements (i.e. RubyGems 1.1.1+)
 * Fix tests to reference ActiveSupport::Dependencies instead of Dependencies
 * Automatically load ActionView::TestCase
 

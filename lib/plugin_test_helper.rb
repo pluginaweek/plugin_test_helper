@@ -9,7 +9,7 @@ $:.unshift(RAILS_ROOT)
 # Set the default environment to sqlite3's in_memory database
 ENV['RAILS_ENV'] ||= 'in_memory'
 
-# First boost the Rails framework
+# First boot the Rails framework
 require 'config/boot'
 
 # Extend it so that we can hook into the initialization process
@@ -19,15 +19,8 @@ require 'plugin_test_helper/extensions/initializer'
 require 'config/environment'
 require 'test_help'
 
-# Load additional test classes not done automatically by Rails
-require 'action_view/test_case'
-
 # Undo changes to RAILS_ENV
 silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}
 
-# Set default fixture loading properties
-Test::Unit::TestCase.class_eval do
-  self.use_transactional_fixtures = true
-  self.use_instantiated_fixtures  = false
-  self.fixture_path = "#{Rails.root}/../fixtures"
-end
+# Set default fixture path
+Test::Unit::TestCase.fixture_path = "#{Rails.root}/../fixtures"
