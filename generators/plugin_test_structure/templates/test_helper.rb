@@ -11,5 +11,9 @@ silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}
 # Run the migrations
 ActiveRecord::Migrator.migrate("#{Rails.root}/db/migrate")
 
-# Set default fixture path
-Test::Unit::TestCase.fixture_path = "#{File.dirname(__FILE__)}/fixtures"
+# Set default fixture loading properties
+Test::Unit::TestCase.class_eval do
+  self.use_transactional_fixtures = true
+  self.use_instantiated_fixtures = false
+  self.fixture_path = "#{File.dirname(__FILE__)}/fixtures"
+end

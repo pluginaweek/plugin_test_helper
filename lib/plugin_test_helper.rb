@@ -22,5 +22,9 @@ require 'test_help'
 # Undo changes to RAILS_ENV
 silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}
 
-# Set default fixture path
-Test::Unit::TestCase.fixture_path = "#{Rails.root}/../fixtures"
+# Set default fixture loading properties
+Test::Unit::TestCase.class_eval do
+  self.use_transactional_fixtures = true
+  self.use_instantiated_fixtures = false
+  self.fixture_path = "#{Rails.root}/../fixtures"
+end

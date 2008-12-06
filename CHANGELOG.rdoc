@@ -3,7 +3,6 @@
 * Remove all dependencies on plugin_test_helper when using the plugin_test_structure generator
 * Add a test_helper to the plugin_test_structure generator [Jinzhu Zhang]
 * Use the main application vendor/rails in which the plugin exists as the default vendor install if RAILS_FRAMEWORK_ROOT isn't defined [Jinzhu Zhang]
-* No longer set use_transactional_fixutres/use_instantiated_fixtures defaults since they're already set by Rails
 * Update boot file to Rails 2.1.1+ requirements (i.e. RubyGems 1.1.1+)
 * Fix tests to reference ActiveSupport::Dependencies instead of Dependencies
 * Automatically load ActionView::TestCase
