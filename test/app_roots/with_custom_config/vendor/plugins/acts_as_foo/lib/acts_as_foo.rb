@@ -1,4 +1,2 @@
-module PluginAWeek
-  module ActsAsFoo
-  end
+module ActsAsFoo
 end

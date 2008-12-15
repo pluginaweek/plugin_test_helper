@@ -1,5 +1,7 @@
 == master
 
+* Remove the PluginAWeek namespace
+
 == 0.1.6 / 2008-12-06
 
 * Remove all dependencies on plugin_test_helper when using the plugin_test_structure generator

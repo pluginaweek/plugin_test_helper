@@ -7,7 +7,7 @@ class PluginLocatorTest < Test::Unit::TestCase
   end
   
   def test_should_locate_plugin_being_tested
-    locator = PluginAWeek::PluginTestHelper::PluginLocator.new(nil)
+    locator = PluginTestHelper::PluginLocator.new(nil)
     assert_equal ['plugin_test_helper'], locator.plugins.map(&:name)
   end
   

@@ -24,7 +24,7 @@ class PluginTestHelperTest < Test::Unit::TestCase
   def test_should_load_with_custom_config
     setup_app('with_custom_config')
     
-    assert_not_nil PluginAWeek::ActsAsFoo
+    assert_not_nil ActsAsFoo
   end
   
   def test_should_load_with_controller

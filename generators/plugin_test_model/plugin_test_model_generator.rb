@@ -1,5 +1,5 @@
 # Generates the class, fixtures, and migration for a model in a plugin's test application
-class PluginTestModelGenerator < PluginAWeek::PluginTestHelper::Generator
+class PluginTestModelGenerator < PluginTestHelper::Generator
   default_options :skip_migration => false
   
   def manifest #:nodoc:

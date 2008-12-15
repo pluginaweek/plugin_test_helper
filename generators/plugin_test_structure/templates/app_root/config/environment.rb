@@ -9,5 +9,5 @@ Rails::Initializer.run do |config|
         [Rails::Plugin.new(File.expand_path('.'))]
       end
     end
-  ) unless defined?(PluginAWeek::PluginTestHelper::PluginLocator)
+  ) unless defined?(PluginTestHelper::PluginLocator)
 end
