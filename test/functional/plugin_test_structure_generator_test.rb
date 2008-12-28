@@ -54,6 +54,10 @@ class PluginTestStructureGeneratorTest < Test::Unit::TestCase
     assert File.exists?("#{Rails.root}/vendor/plugins/acts_as_foo/test/app_root/config/routes.rb")
   end
   
+  def test_should_create_console_helper
+    assert File.exists?("#{Rails.root}/vendor/plugins/acts_as_foo/test/app_root/lib/console_with_fixtures.rb")
+  end
+  
   def test_should_create_console_script
     assert File.exists?("#{Rails.root}/vendor/plugins/acts_as_foo/test/app_root/script/console")
   end
