@@ -9,7 +9,7 @@ spec = Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.summary           = 'Simplifies plugin testing by creating an isolated Rails environment that simulates its usage in a real application.'
   
-  s.files             = FileList['{generators,lib,test}/**/*'] + %w(CHANGELOG.rdoc init.rb LICENSE Rakefile README.rdoc) - FileList['generators/plugin_test_structure/templates/app_root/{log,log/*,script,script/*}']
+  s.files             = FileList['{generators,lib,test}/**/*'] + %w(CHANGELOG.rdoc LICENSE Rakefile README.rdoc) - FileList['generators/plugin_test_structure/templates/app_root/{log,log/*,script,script/*}']
   s.require_path      = 'lib'
   s.has_rdoc          = true
   s.test_files        = Dir['test/**/*_test.rb']
