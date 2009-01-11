@@ -1,1 +1,0 @@
-require 'plugin_test_helper'
