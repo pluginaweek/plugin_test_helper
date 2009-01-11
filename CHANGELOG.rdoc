@@ -1,5 +1,7 @@
 == master
 
+== 0.2.1 / 2008-01-11
+
 * Remove init.rb since the library should never be loaded automatically
 * Fix fixtures not being loaded within the test application console [Sergei Kozlov]
 
