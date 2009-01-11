@@ -3,7 +3,7 @@ require 'fileutils'
 
 class PluginTestHelperTest < Test::Unit::TestCase
   def setup
-    @original_load_path = $LOAD_PATH
+    @original_load_path = $LOAD_PATH.dup
   end
   
   def test_should_load_with_no_app_root

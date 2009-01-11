@@ -39,8 +39,7 @@ Test::Unit::TestCase.class_eval do
       
       # Forget that the environment files were loaded so that a new app environment
       # can be set up again
-      $".delete('config/environment.rb')
-      $".delete('test_help.rb')
+      $".delete_if {|path| path =~ /(config\/environment\.rb|test_help\.rb)$/}
       
       # Remove the app folder
       FileUtils.rm_r(Dir['test/app_root/*'])
