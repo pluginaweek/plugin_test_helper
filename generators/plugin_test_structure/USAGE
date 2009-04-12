@@ -8,7 +8,7 @@ Examples:
 
         creates test, controller and application configurations:
             Test Helper:    test/test_helper.rb
-            Controller:     test/app_root/app/controllers/application.rb
+            Controller:     test/app_root/app/controllers/application_controller.rb
             Configurations: test/app_root/config/boot.rb
                             test/app_root/config/database.yml
                             test/app_root/config/environment.rb

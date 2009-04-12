@@ -14,6 +14,25 @@ require 'stringio'
 Object.const_set('RAILS_DEFAULT_LOGGER', Logger.new(StringIO.new))
 
 Test::Unit::TestCase.class_eval do
+  def self.reset_environment
+    # Clear dependencies
+    ActiveRecord::Base.reset_subclasses
+    ActiveSupport::Dependencies.clear
+    
+    # Clear configurations
+    ActionController::Routing.controller_paths.clear
+    ActionController::Routing::Routes.configuration_files.clear
+    Rails::Rack::Metal.requested_metals.clear if Rails::Rack::Metal.requested_metals
+    Rails::Rack::Metal.metal_paths.clear if Rails::Rack::Metal.metal_paths
+    
+    # Reset open streams
+    ActiveRecord::Base.clear_reloadable_connections!
+    
+    # Forget that the environment files were loaded so that a new app environment
+    # can be set up again
+    $".delete_if {|path| path =~ /(config\/environment\.rb|test_help\.rb)$/}
+  end
+  
   private
     def assert_valid_environment
       assert_not_nil ApplicationController
@@ -29,19 +48,14 @@ Test::Unit::TestCase.class_eval do
     end
     
     def teardown_app
-      # Clear dependencies
-      self.class.use_transactional_fixtures = false
-      ActiveRecord::Base.reset_subclasses
-      ActiveSupport::Dependencies.clear
-      
-      # Reset open streams
-      ActiveRecord::Base.clear_reloadable_connections!
-      
-      # Forget that the environment files were loaded so that a new app environment
-      # can be set up again
-      $".delete_if {|path| path =~ /(config\/environment\.rb|test_help\.rb)$/}
+      self.class.reset_environment
       
       # Remove the app folder
       FileUtils.rm_r(Dir['test/app_root/*'])
     end
 end
+
+# Load the helper once before tests start so that the Rails library paths
+# don't get lost betweeen environment loads
+require 'plugin_test_helper'
+Test::Unit::TestCase.reset_environment

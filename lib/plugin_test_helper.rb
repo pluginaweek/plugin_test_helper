@@ -19,16 +19,14 @@ require 'plugin_test_helper/extensions/initializer'
 require 'config/environment'
 require 'test_help'
 
-# Load additional test classes not done automatically by < Rails 2.2.2
-# TODO: Remove in Rails 2.2.3 / 2.3 (whichever includes the fix)
-require 'action_view/test_case'
-
 # Undo changes to RAILS_ENV
 silence_warnings {RAILS_ENV = ENV['RAILS_ENV']}
 
 # Set default fixture loading properties
-Test::Unit::TestCase.class_eval do
+ActiveSupport::TestCase.class_eval do
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures = false
-  self.fixture_path = "#{Rails.root}/../fixtures"
+  self.fixture_path = "#{File.dirname(__FILE__)}/fixtures"
+  
+  fixtures :all
 end

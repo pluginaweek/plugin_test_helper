@@ -104,7 +104,7 @@ Example:
         create  vendor/plugins/acts_as_most_popular/test/app_root/config/environments/in_memory.rb
         create  vendor/plugins/acts_as_most_popular/test/app_root/config/environments/postgresql.rb
         create  vendor/plugins/acts_as_most_popular/test/app_root/app/controllers
-        create  vendor/plugins/acts_as_most_popular/test/app_root/app/controllers/application.rb
+        create  vendor/plugins/acts_as_most_popular/test/app_root/app/controllers/application_controller.rb
   Loaded suite script/generate
   Started
   
@@ -187,7 +187,7 @@ Example:
 
 == Dependencies
 
-Rails 2.1 or later
+Rails 2.3 or later
 
 == References
 

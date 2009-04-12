@@ -1,9 +1,11 @@
+require 'plugin_test_helper/generator'
+
 # Generates a test console for the plugin's test application.
-class PluginTestConsoleGenerator < Rails::Generator::NamedBase
+class PluginTestConsoleGenerator < Rails::Generator::Base
+  include PluginTestHelper::Generator
+  
   def manifest #:nodoc:
     record do |m|
-      plugin_root = "vendor/plugins/#{name}"
-      
       # Script directory
       m.directory File.join(plugin_root, 'script')
       

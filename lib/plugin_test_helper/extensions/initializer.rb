@@ -31,7 +31,6 @@ module PluginTestHelper
         alias_method_chain base, :default_routes_configuration_file, :test_helper
         alias_method_chain base, :default_controller_paths, :test_helper
         alias_method_chain base, :default_plugin_locators, :test_helper
-        alias_method_chain base, :default_plugin_paths, :test_helper
       end
       
       # Defines a "lite" version of ActiveSupport's alias chaining extensions.
@@ -60,7 +59,6 @@ module PluginTestHelper
             app/controllers
             config
             lib
-            vendor
           ).map {|dir| "#{HELPER_RAILS_ROOT}/#{dir}"}
         end
         
@@ -86,12 +84,6 @@ module PluginTestHelper
         def default_plugin_locators_with_test_helper
           locators = default_plugin_locators_without_test_helper
           locators.unshift(PluginTestHelper::PluginLocator)
-        end
-        
-        # Add the helper's vendor/plugins path
-        def default_plugin_paths_with_test_helper
-          paths = default_plugin_paths_without_test_helper
-          paths << File.join(HELPER_RAILS_ROOT, 'vendor/plugins')
         end
     end
   end

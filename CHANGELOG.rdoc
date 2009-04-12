@@ -1,5 +1,10 @@
 == master
 
+* Fix environment being loaded twice when generators are loaded
+* Clean up / simplify generators
+* Rename application.rb to application_controller.rb
+* Add dependency on Rails 2.3
+
 == 0.2.1 / 2009-01-11
 
 * Remove init.rb since the library should never be loaded automatically

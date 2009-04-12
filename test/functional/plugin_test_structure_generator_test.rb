@@ -15,7 +15,7 @@ class PluginTestStructureGeneratorTest < Test::Unit::TestCase
   end
   
   def test_should_create_application_controller
-    assert File.exists?("#{Rails.root}/vendor/plugins/acts_as_foo/test/app_root/app/controllers/application.rb")
+    assert File.exists?("#{Rails.root}/vendor/plugins/acts_as_foo/test/app_root/app/controllers/application_controller.rb")
   end
   
   def test_should_create_in_memory_environment

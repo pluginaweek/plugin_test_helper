@@ -1,5 +1,9 @@
+require 'plugin_test_helper/generator'
+
 # Generates the class and view for a controller in a plugin's test application
-class PluginTestControllerGenerator < PluginTestHelper::Generator
+class PluginTestControllerGenerator < Rails::Generator::NamedBase
+  include PluginTestHelper::Generator
+  
   def manifest #:nodoc:
     record do |m|
       # Check for class naming collisions

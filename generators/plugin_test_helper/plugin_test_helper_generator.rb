@@ -1,9 +1,11 @@
+require 'plugin_test_helper/generator'
+
 # Generates the test helper for a plugin
-class PluginTestHelperGenerator < Rails::Generator::NamedBase
+class PluginTestHelperGenerator < Rails::Generator::Base
+  include PluginTestHelper::Generator
+  
   def manifest #:nodoc:
     record do |m|
-      plugin_root = "vendor/plugins/#{name}"
-      
       # Test directory
       m.directory File.join(plugin_root, 'test')
       

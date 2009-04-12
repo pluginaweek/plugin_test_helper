@@ -8,6 +8,7 @@ class PluginTestHelperTest < Test::Unit::TestCase
   
   def test_should_load_with_no_app_root
     load 'plugin_test_helper.rb'
+    
     assert_valid_environment
   end
   

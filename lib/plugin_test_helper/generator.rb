@@ -3,7 +3,7 @@ require 'rails_generator'
 module PluginTestHelper
   # The base generator for creating parts of the test application. The first
   # argument of the generator is always the name of the plugin.
-  class Generator < Rails::Generator::NamedBase
+  module Generator
     attr_accessor :plugin_name
     
     def initialize(*runtime_args) #:nodoc:
@@ -12,9 +12,14 @@ module PluginTestHelper
     end
     
     private
+      # The root path of the plugin's directory
+      def plugin_root
+        "vendor/plugins/#{plugin_name}"
+      end
+      
       # The root path of the plugin's test directory
       def plugin_test_root
-        "vendor/plugins/#{plugin_name}/test"
+        "#{plugin_root}/test"
       end
       
       # The root path of the plugin's test app
