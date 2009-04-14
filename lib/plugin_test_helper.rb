@@ -12,8 +12,8 @@ ENV['RAILS_ENV'] ||= 'in_memory'
 # First boot the Rails framework
 require 'config/boot'
 
-# Extend it so that we can hook into the initialization process
-require 'plugin_test_helper/extensions/initializer'
+# Extend it so that we can hook into the configuration process
+require 'plugin_test_helper/extensions/configuration'
 
 # Load the Rails environment and testing framework
 require 'config/environment'

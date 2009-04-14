@@ -2,24 +2,6 @@ require 'plugin_test_helper/plugin_locator'
 
 module PluginTestHelper
   module Extensions #:nodoc:
-    # Adds in hooks for extending other parts of the Rails framework *after*
-    # Rails has loaded those frameworks
-    module Initializer
-      def self.included(base)
-        base.class_eval do
-          alias_method :require_frameworks_without_test_helper, :require_frameworks
-          alias_method :require_frameworks, :require_frameworks_with_test_helper
-        end
-      end
-      
-      # Load the needed frameworks and then our extensions to them
-      def require_frameworks_with_test_helper
-        require_frameworks_without_test_helper
-        
-        require 'plugin_test_helper/generator'
-      end
-    end
-    
     # Overrides some of the default values in the Rails configuration so that
     # files can be reused from this test helper or overridden by the plugin
     # using the helper
@@ -87,10 +69,6 @@ module PluginTestHelper
         end
     end
   end
-end
-
-Rails::Initializer.class_eval do
-  include PluginTestHelper::Extensions::Initializer
 end
 
 Rails::Configuration.class_eval do
