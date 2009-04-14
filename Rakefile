@@ -5,7 +5,7 @@ require 'rake/contrib/sshpublisher'
 
 spec = Gem::Specification.new do |s|
   s.name              = 'plugin_test_helper'
-  s.version           = '0.2.1'
+  s.version           = '0.3.0'
   s.platform          = Gem::Platform::RUBY
   s.summary           = 'Simplifies plugin testing by creating an isolated Rails environment that simulates its usage in a real application.'
   

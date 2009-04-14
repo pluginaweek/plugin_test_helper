@@ -1,5 +1,7 @@
 == master
 
+== 0.3.0 / 2009-04-13
+
 * Fix environment being loaded twice when generators are loaded
 * Clean up / simplify generators
 * Rename application.rb to application_controller.rb
