@@ -8,6 +8,7 @@ spec = Gem::Specification.new do |s|
   s.version           = '0.3.0'
   s.platform          = Gem::Platform::RUBY
   s.summary           = 'Simplifies plugin testing by creating an isolated Rails environment that simulates its usage in a real application.'
+  s.description       = s.summary
   
   s.files             = FileList['{generators,lib,test}/**/*'] + %w(CHANGELOG.rdoc LICENSE Rakefile README.rdoc) - FileList['generators/plugin_test_structure/templates/app_root/{log,log/*,script,script/*}']
   s.require_path      = 'lib'
