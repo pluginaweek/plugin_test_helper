@@ -1,5 +1,5 @@
 # Make sure our default RAILS_ROOT from the helper plugin is in the load path
-HELPER_RAILS_ROOT = "#{File.dirname(__FILE__)}/../generators/plugin_test_structure/templates/app_root" unless defined?(HELPER_RAILS_ROOT)
+HELPER_RAILS_ROOT = File.expand_path('../generators/plugin_test_structure/templates/app_root', File.dirname(__FILE__)) unless defined?(HELPER_RAILS_ROOT)
 $:.unshift(HELPER_RAILS_ROOT)
 
 # Determine the plugin's root test directory and add it to the load path

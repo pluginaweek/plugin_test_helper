@@ -1,5 +1,6 @@
 == master
 
+* Fix HELPER_RAILS_ROOT path resulting in incorrect load_once_paths in Ruby 1.9+
 * Update migration template to match Rails template
 
 == 0.3.0 / 2009-04-13
