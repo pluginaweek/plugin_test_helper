@@ -1,5 +1,7 @@
 == master
 
+== 0.3.1 / 2010-03-07
+
 * Release gems via rake-gemcutter instead of rubyforge
 * Fix HELPER_RAILS_ROOT path resulting in incorrect load_once_paths in Ruby 1.9+
 * Update migration template to match Rails template
