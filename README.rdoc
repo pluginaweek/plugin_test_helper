@@ -7,7 +7,7 @@ environment that simulates its usage in a real application.
 
 API
 
-* http://rdoc.info/projects/pluginaweek/plugin_test_helper
+* http://rdoc.info/github/pluginaweek/plugin_test_helper/master/frames
 
 Bugs
 
