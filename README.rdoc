@@ -21,6 +21,10 @@ Source
 
 * git://github.com/pluginaweek/plugin_test_helper.git
 
+Mailing List
+
+* http://groups.google.com/group/pluginaweek-talk
+
 == Description
 
 Plugins often need to initialize a full Rails environment, whether it be for
