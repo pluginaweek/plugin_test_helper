@@ -1,4 +1,4 @@
-= plugin_test_helper
+= plugin_test_helper http://travis-ci.org/pluginaweek/plugin_test_helper.png
 
 +plugin_test_helper+ simplifies plugin testing by creating an isolated Rails
 environment that simulates its usage in a real application.
@@ -16,6 +16,10 @@ Bugs
 Development
 
 * http://github.com/pluginaweek/plugin_test_helper
+
+Testing
+
+* http://travis-ci.org/pluginaweek/plugin_test_helper
 
 Source
 
