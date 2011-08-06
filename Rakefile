@@ -3,41 +3,23 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-spec = Gem::Specification.new do |s|
-  s.name              = 'plugin_test_helper'
-  s.version           = '0.3.1'
-  s.platform          = Gem::Platform::RUBY
-  s.summary           = 'Simplifies plugin testing by creating an isolated Rails environment that simulates its usage in a real application.'
-  s.description       = s.summary
-  
-  s.files             = FileList['{generators,lib,test}/**/*'] + %w(CHANGELOG.rdoc LICENSE Rakefile README.rdoc) - FileList['generators/plugin_test_structure/templates/app_root/{log,log/*,script,script/*}']
-  s.require_path      = 'lib'
-  s.has_rdoc          = true
-  s.test_files        = Dir['test/**/*_test.rb']
-  
-  s.author            = 'Aaron Pfeifer'
-  s.email             = 'aaron@pluginaweek.org'
-  s.homepage          = 'http://www.pluginaweek.org'
-  s.rubyforge_project = 'pluginaweek'
-end
-  
 desc 'Default: run all tests.'
 task :default => :test
 
-desc "Test the #{spec.name} plugin."
+desc "Test plugin_test_helper."
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
-  t.test_files = spec.test_files
+  t.test_files = Dir['test/**/*_test.rb']
   t.verbose = true
 end
 
 begin
   require 'rcov/rcovtask'
   namespace :test do
-    desc "Test the #{spec.name} plugin with Rcov."
+    desc "Test plugin_test_helper with Rcov."
     Rcov::RcovTask.new(:rcov) do |t|
       t.libs << 'lib'
-      t.test_files = spec.test_files
+      t.test_files = Dir['test/**/*_test.rb']
       t.rcov_opts << '--exclude="^(?!lib/|generators/.*/.*_generator.rb)"'
       t.verbose = true
     end
@@ -45,18 +27,10 @@ begin
 rescue LoadError
 end
 
-desc "Generate documentation for the #{spec.name} plugin."
+desc "Generate documentation for plugin_test_helper."
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = spec.name
-  rdoc.template = '../rdoc_template.rb'
+  rdoc.title    = 'plugin_test_helper'
   rdoc.options << '--line-numbers' << '--inline-source' << '--main=README.rdoc'
   rdoc.rdoc_files.include('README.rdoc', 'CHANGELOG.rdoc', 'LICENSE', 'lib/**/*.rb')
-end
-
-desc 'Generate a gemspec file.'
-task :gemspec do
-  File.open("#{spec.name}.gemspec", 'w') do |f|
-    f.write spec.to_ruby
-  end
 end
