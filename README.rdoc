@@ -11,7 +11,7 @@ API
 
 Bugs
 
-* http://pluginaweek.lighthouseapp.com/projects/13283-plugin_test_helper
+* http://github.com/pluginaweek/plugin_test_helper/issues
 
 Development
 
