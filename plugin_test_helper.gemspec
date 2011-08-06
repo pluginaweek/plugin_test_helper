@@ -14,4 +14,8 @@ Gem::Specification.new do |s|
   s.test_files        = `git ls-files -- test/*`.split("\n")
   s.rdoc_options      = %w(--line-numbers --inline-source --title plugin_test_helper --main README.rdoc)
   s.extra_rdoc_files  = %w(README.rdoc CHANGELOG.rdoc LICENSE)
+  
+  s.add_dependency("rails", "= 2.3.8")
+  s.add_dependency("sqlite3-ruby", "~> 1.3.0")
+  s.add_development_dependency("rake")
 end
