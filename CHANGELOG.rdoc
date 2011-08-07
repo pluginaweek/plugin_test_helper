@@ -1,5 +1,7 @@
 == master
 
+* Use DB environment variable to switch the Rails environment instead of RAILS_ENV
+
 == 0.3.1 / 2010-03-07
 
 * Release gems via rake-gemcutter instead of rubyforge

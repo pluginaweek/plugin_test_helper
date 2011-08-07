@@ -7,7 +7,7 @@ RAILS_ROOT = (File.directory?('./test/app_root') ? './test/app_root' : HELPER_RA
 $:.unshift(RAILS_ROOT)
 
 # Set the default environment to sqlite3's in_memory database
-ENV['RAILS_ENV'] ||= 'in_memory'
+ENV['RAILS_ENV'] = ENV['DB'] || 'in_memory'
 
 # First boot the Rails framework
 require 'config/boot'
